@@ -48,7 +48,7 @@
 
       <!-- Here goes the app-content -->
 
-      <?php echo $this->_[content]; ?>
+      <?php echo $this->_['content']; ?>
 
       <!-- Here the content ends -->
 

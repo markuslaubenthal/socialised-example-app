@@ -4,7 +4,7 @@ class View{
     // Pfad zum Template
     private $path = 'templates';
     // Name des Templates, in dem Fall das Standardtemplate.
-    private $template = 'default';
+    private $template = 'application';
 
     /**
      * Enthält die Variablen, die in das Template eingebetet
@@ -60,6 +60,7 @@ class View{
             return $output;
         }
         else {
+            
             // Template-File existiert nicht-> Fehlermeldung.
             return 'could not find template';
         }

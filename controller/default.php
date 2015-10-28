@@ -1,5 +1,5 @@
 <?php
-class Controller{
+class ControllerDefault{
 
     private $request = null;
     private $template = '';
@@ -25,20 +25,20 @@ class Controller{
         $innerView = new View();
         switch($this->template){
             case 'entry':
-                $innerView->setTemplate('entry');
+                $innerView->setTemplate('posts');
                 $entryid = $this->request['id'];
-                $entry = Model::find($entryid);
+                $entry = ModelDefault::find($entryid);
                 $innerView->assign('title', $entry['title']);
                 $innerView->assign('content', $entry['content']);
                 break;
 
             case 'default':
             default:
-              $innerView->setTemplate('default');
-                $result = Model::findAll();
+                $innerView->setTemplate('posts');
+                $result = ModelDefault::findAll();
                 $innerView->assign('modeldata', $result);
         }
-        $this->view->setTemplate('entries');
+        $this->view->setTemplate('application');
         $this->view->assign('title', 'The Title');
         $this->view->assign('content', $innerView->loadTemplate());
         return $this->view->loadTemplate();
