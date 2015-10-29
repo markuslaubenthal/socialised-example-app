@@ -6,6 +6,9 @@ ini_set("display_errors", 1);
 // Credentials
 require_once 'restricted/mysql_credentials.php';
 
+// Connection
+require_once 'classes/pdo_connection.php';
+
 // Router
 require_once 'router.php';
 

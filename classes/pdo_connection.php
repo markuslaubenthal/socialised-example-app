@@ -1,6 +1,6 @@
 <?php
 
- class Demo {
+ class PDOConnection {
    /**
     * instance
     *
@@ -36,13 +36,15 @@
     */
    protected function __clone() {}
 
-     $this->connection = new PDO(MYSQL_HOST, MYSQL_USER, MYSQL_PASS);
+
    /**
     * constructor
     *
     * externe Instanzierung verbieten
     */
-   protected function __construct() {}
+   protected function __construct() {
+     self::$_instance->$connection = new PDO(MYSQL_HOST, MYSQL_USER, MYSQL_PASS);
+   }
  }
 
 ?>
