@@ -31,7 +31,7 @@
       	<div class="inner">
       		<h2>Menu</h2>
       		<ul class="links">
-      			<li><a href="#">Log In</a></li>
+      			<li><fb:login-button href="#" scope="public_profile,email" onlogin="checkLoginState();">Log In</fb:login-button></li>
       		</ul>
       		<a href="#" class="close">Close</a>
       	</div>
@@ -48,7 +48,7 @@
 
       <!-- Here goes the app-content -->
 
-      <?php echo $this->_['content']; ?>
+      <?php echo $this->_['outlet']; ?>
 
       <!-- Here the content ends -->
 
@@ -97,6 +97,7 @@
     <!-- /Footer End -->
 
     <!-- Scripts -->
+    <script src="assets/js/facebook-test.js"></script>
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrollex.min.js"></script>

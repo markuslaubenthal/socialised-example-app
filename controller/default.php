@@ -13,7 +13,7 @@ class ControllerDefault{
     public function __construct($request){
         $this->view = new View();
         $this->request = $request;
-        $this->template = !empty($request['view']) ? $request['view'] : 'default';
+        $this->template = 'default';
     }
 
     /**
@@ -23,24 +23,10 @@ class ControllerDefault{
      */
     public function display(){
         $innerView = new View();
-        switch($this->template){
-            case 'entry':
-                $innerView->setTemplate('posts');
-                $entryid = $this->request['id'];
-                $entry = ModelDefault::find($entryid);
-                $innerView->assign('title', $entry['title']);
-                $innerView->assign('content', $entry['content']);
-                break;
-
-            case 'default':
-            default:
-                $innerView->setTemplate('posts');
-                $result = ModelDefault::findAll();
-                $innerView->assign('modeldata', $result);
-        }
+        $innerView->setTemplate('posts');
         $this->view->setTemplate('application');
-        $this->view->assign('title', 'The Title');
-        $this->view->assign('content', $innerView->loadTemplate());
+        $this->view->assign('title', 'Socialised Test App - Default Page');
+        $this->view->assign('outlet', $innerView->loadTemplate());
         return $this->view->loadTemplate();
     }
 }
