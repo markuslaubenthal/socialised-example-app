@@ -31,7 +31,7 @@
       	<div class="inner">
       		<h2>Menu</h2>
       		<ul class="links">
-      			<li><fb:login-button href="#" scope="public_profile,email" onlogin="checkLoginState();">Log In</fb:login-button></li>
+      			<li><fb:login-button href="#" scope="public_profile,email,manage_pages" onlogin="checkLoginState();">Log In</fb:login-button></li>
       		</ul>
       		<a href="#" class="close">Close</a>
       	</div>
@@ -93,15 +93,22 @@
           </ul>
         </div>
       </section>
+			<form id='login' action="post" target="index.php?route=login" hidden>
+				<input name="userid"></input>
+				<input name="accessToken"></input>
+				<input name="name"></input>
+			</form>
     </div>
     <!-- /Footer End -->
 
     <!-- Scripts -->
-    <script src="assets/js/facebook-test.js"></script>
     <script src="assets/js/skel.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrollex.min.js"></script>
     <script src="assets/js/util.js"></script>
     <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+		<script src="assets/js/facebook-test.js"></script>
+		<script src="assets/js/route.js"></script>
+		<script src="assets/js/db-interface.js"></script>
     <script src="assets/js/main.js"></script>
   </body>

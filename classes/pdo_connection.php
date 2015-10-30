@@ -10,7 +10,7 @@
     */
    protected static $_instance = null;
 
-   protected $connection;
+   protected static $_connection;
 
    /**
     * get instance
@@ -26,7 +26,7 @@
        {
            self::$_instance = new self;
        }
-       return self::$_instance->connection;
+       return self::$_connection;
    }
 
    /**
@@ -43,7 +43,7 @@
     * externe Instanzierung verbieten
     */
    protected function __construct() {
-     self::$_instance->$connection = new PDO(MYSQL_HOST, MYSQL_USER, MYSQL_PASS);
+     self::$_connection = new PDO(MYSQL_HOST, MYSQL_USER, MYSQL_PASS);
    }
  }
 

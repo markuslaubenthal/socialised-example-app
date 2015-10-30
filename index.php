@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
@@ -14,15 +16,12 @@ require_once 'router.php';
 
 // Controller
 require_once 'controller/default.php';
-
+require_once 'controller/user.php';
 // API
 require_once 'classes/facebook-api.php';
 
-// Models
-require_once 'models/default.php';
-require_once 'models/application-user.php';
-require_once 'models/facebook-administrated-page.php';
-require_once 'models/facebook-post.php';
+// Repositories
+require_once 'repositories/application-user-repository.php';
 
 // View
 require_once 'classes/view.php';
