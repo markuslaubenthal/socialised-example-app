@@ -1,8 +1,21 @@
+var accessToken = '';
+
 function facebookLogin() {
   console.log('Welcome!  Fetching your information.... ');
-  FB.api('/me', function(response) {
-    console.log('Successful login for: ' + response.name);
+  FB.api('/me', function(userdata) {
+    console.log('Successful login for: ' + userdata.name);
+    // if standard route, create the User
+    if(route === '') {
+      userdata.accessToken = accessToken;
+      createUser(userdata, getManagedPages);
+    }
   });
+}
+
+function getManagedPages() {
+  FB.api('/me/accounts', function(accounts) {
+    //foreach page
+  })
 }
 
 window.fbAsyncInit = function() {
@@ -31,6 +44,7 @@ function checkLoginState() {
 function statusChangeCallback(response) {
   console.log('statusChangeCallback');
   console.log(response);
+  accessToken = response.authResponse.accessToken;
   // The response object is returned with a status field that lets the
   // app know the current login status of the person.
   // Full docs on the response object can be found in the documentation
