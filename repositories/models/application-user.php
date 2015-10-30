@@ -3,6 +3,12 @@
 class ModelApplicationUser {
 
   /**
+  * stores users id (Facebook UserID)
+  *
+  */
+  public $id;
+
+  /**
   * stores the users full name
   *
   */
