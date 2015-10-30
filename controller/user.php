@@ -16,21 +16,20 @@ class ControllerUser{
         $this->request = $request;
         $this->template = '';
 
-        print_r($request);
-
         if($request['route'] === 'createUser') {
           if(ModelApplicationUserRepository::create($request['data']) !== 200) {
             // Error
-
+            $outputArray = array(
+              'error' => '1'
+            );
           }
           else {
             // Success
             $outputArray = array(
-              'success' => 'true'
+              'success' => '1'
             );
-            $this->output = json_encode($outputArray);
-            print_r($outputArray);
           }
+          $this->output = json_encode($outputArray);
         }
     }
 
