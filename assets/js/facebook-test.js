@@ -7,15 +7,16 @@ function facebookLogin() {
     // if standard route, create the User
     if(route === '') {
       userdata.accessToken = accessToken;
-      createUser(userdata, getManagedPages);
+      createUser(userdata);
     }
   });
 }
 
-function getManagedPages() {
+var getManagedPages = function () {
   FB.api('/me/accounts', function(accounts) {
     //foreach page
-  })
+    console.log(accounts);
+  });
 }
 
 window.fbAsyncInit = function() {
