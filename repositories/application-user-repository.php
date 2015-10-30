@@ -39,7 +39,7 @@ class ModelApplicationUserRepository {
 
         $stmt = $connection->prepare('
           SELECT  *
-          FROM    users
+          FROM    user
           WHERE   id = :id
         ');
         $stmt->bindParam(':id', $id);

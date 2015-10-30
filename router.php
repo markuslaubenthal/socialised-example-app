@@ -1,8 +1,15 @@
 <?php
 
+/**
+* class Router
+* Emuliert Routen durch /GET index.php?route=:route
+*/
+
 class Router {
 
   public static function getController($request) {
+
+    // Default Route, if no route specified
 
     if(!isset($request['route'])) {
 
@@ -17,6 +24,11 @@ class Router {
         case 'deleteUser':
           return new ControllerUser($request);
         break;
+        case 'login':
+          return new ControllerLogin($request);
+        break;
+        case 'pages':
+          return new ControllerPages($request);
         default:
           return new ControllerDefault($request);
       }

@@ -1,7 +1,12 @@
 <?php
-
+/**
+* quick and dirty login check
+*/
 session_start();
-
+$logged = false;
+if(isset($_SESSION['id'])) {
+  $logged = true;
+}
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
@@ -17,6 +22,9 @@ require_once 'router.php';
 // Controller
 require_once 'controller/default.php';
 require_once 'controller/user.php';
+require_once 'controller/login.php';
+require_once 'controller/pages.php';
+
 // API
 require_once 'classes/facebook-api.php';
 
