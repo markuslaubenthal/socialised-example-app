@@ -39,6 +39,7 @@ class ControllerUser{
      * @return String Content der Applikation.
      */
     public function display(){
+        header('Content-Type: application/json');
         $this->view->setTemplate('json');
         $this->view->assign('outlet', $this->output);
         return $this->view->loadTemplate();
