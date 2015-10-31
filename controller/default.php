@@ -11,11 +11,12 @@ class ControllerDefault{
      * @param Array $request Array aus $_GET & $_POST.
      */
     public function __construct($request){
+        global $logged;
         $this->view = new View();
         $this->request = $request;
         $this->template = 'default';
-
-        $this->user = ModelApplicationUserRepository::find($_SESSION['id']);
+        if($logged)
+          $this->user = ModelApplicationUserRepository::find($_SESSION['id']);
     }
 
     /**

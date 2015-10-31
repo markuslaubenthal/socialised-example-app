@@ -1,4 +1,4 @@
-function createUser(data) {
+function createUser(data, redirect) {
   console.log(data);
   $.ajax({
     url: 'index.php?route=createUser',
@@ -9,7 +9,9 @@ function createUser(data) {
     success: function(data) {
       // Wenn Datensatz angelegt, oder bereits existiert
       if(data.success == 1 || data.error == 23000) {
-        //window.location.href = "/index.php?route=login&id=" + this.pseudodata.id + "&accessToken=" + this.pseudodata.accessToken;
+        $.ajax({
+          url: 'index.php?route=login&id=' + this.pseudodata.id;
+        });
       }
     }
   });
@@ -18,7 +20,7 @@ function createUser(data) {
 function createPage(data) {
   setTimeout(function(data) {
     $.ajax({
-      url: 'index.php?route=creatPage',
+      url: 'index.php?route=createPage',
       type: 'POST',
       data: {data: data},
       success: function(data) {
