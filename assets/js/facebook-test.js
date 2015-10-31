@@ -8,15 +8,25 @@ function facebookLogin() {
     if(route === '') {
       userdata.accessToken = accessToken;
       createUser(userdata);
+      init();
     }
   });
 }
 
-var getManagedPages = function () {
+var getManagedPages = function (callback) {
   FB.api('/me/accounts', function(accounts) {
-    //foreach page
-    console.log(accounts);
+    if(callback)
+      callback(accounts);
   });
+}
+
+var getPostsFromPage = function (account, callback) {
+  var apicall = '/' + account.id + '/posts';
+
+    FB.api(apicall, function(account, posts) {
+      if(callback)
+        callback(account, posts);
+    });
 }
 
 window.fbAsyncInit = function() {

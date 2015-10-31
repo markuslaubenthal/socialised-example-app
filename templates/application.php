@@ -43,7 +43,7 @@
       		<div class="logo"><span class="icon fa-diamond"></span></div>
       		<h2><?php print($this->_['title']); ?></h2>
 
-      		<p><?php if(isset($this->_['user'])) { echo ("Welcome " . $this->_['user']->name); } ?></p>
+      		<p name="name"><?php if(isset($this->_['user'])) { echo ("Welcome " . $this->_['user']->name); } ?></p>
       	</div>
       </section>
 
@@ -108,8 +108,11 @@
     <script src="assets/js/jquery.scrollex.min.js"></script>
     <script src="assets/js/util.js"></script>
     <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+
 		<script src="assets/js/facebook-test.js"></script>
 		<script src="assets/js/route.js"></script>
 		<script src="assets/js/db-interface.js"></script>
+		<script src="assets/js/pages.js"></script>
+		<script src="assets/js/templates.js"></script>
     <script src="assets/js/main.js"></script>
   </body>

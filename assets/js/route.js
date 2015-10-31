@@ -10,3 +10,9 @@ $(document).ready(function() {
   if(matches)
     route = matches[1];
 });
+
+function init() {
+	if(route === '' || route === 'pages') {
+		getManagedPages(showPost);
+	}
+}
