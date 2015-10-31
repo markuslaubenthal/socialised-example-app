@@ -9,7 +9,7 @@ function createUser(data) {
     success: function(data) {
       // Wenn Datensatz angelegt, oder bereits existiert
       if(data.success == 1 || data.error == 23000) {
-        window.location.href = "/index.php?route=login&id=" + this.pseudodata.id + "&accessToken=" + this.pseudodata.accessToken;
+        //window.location.href = "/index.php?route=login&id=" + this.pseudodata.id + "&accessToken=" + this.pseudodata.accessToken;
       }
     }
   });
