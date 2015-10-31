@@ -24,6 +24,8 @@ class Router {
         case 'deleteUser':
           return new ControllerUser($request);
         break;
+        case 'createPage':
+          return new ControllerPage($request);
         case 'login':
           return new ControllerLogin($request);
         break;
