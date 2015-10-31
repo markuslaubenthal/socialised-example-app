@@ -17,7 +17,7 @@ require_once 'restricted/mysql_credentials.php';
 require_once 'classes/pdo_connection.php';
 
 // Router
-require_once 'router.php';
+require_once 'classes/router.php';
 
 // Controller
 require_once 'controller/default.php';
