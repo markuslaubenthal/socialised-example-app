@@ -2,6 +2,9 @@ var sectionCounter = true;
 
 var getPosts = function(account) {
   $.each(account.data, function(i, item) {
+    console.log(account);
+    account.data[i].user_id = userid;
+    createPage(account.data[i]);
     getPostsFromPage(account.data[i], showPost);
   });
 

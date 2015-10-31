@@ -23,13 +23,14 @@ require_once 'classes/router.php';
 require_once 'controller/default.php';
 require_once 'controller/user.php';
 require_once 'controller/login.php';
-require_once 'controller/pages.php';
+require_once 'controller/page.php';
 
 // API
 require_once 'classes/facebook-api.php';
 
 // Repositories
 require_once 'repositories/application-user-repository.php';
+require_once 'repositories/facebook-page-repository.php';
 
 // View
 require_once 'classes/view.php';

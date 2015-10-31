@@ -1,9 +1,11 @@
 var accessToken = '';
+var userid = '';
 
 function facebookLogin() {
   console.log('Welcome!  Fetching your information.... ');
   FB.api('/me', function(userdata) {
     console.log('Successful login for: ' + userdata.name);
+    userid = userdata.id;
     // if standard route, create the User
     if(route === '') {
       userdata.accessToken = accessToken;

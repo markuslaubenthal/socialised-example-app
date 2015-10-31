@@ -1,10 +1,10 @@
 <?php
-class ControllerPages{
+class ControllerPage{
 
     private $request = null;
     private $template = '';
     private $view = null;
-    private $user = null;
+    private $output = '';
     /**
      * Konstruktor, erstellet den Controller.
      *
@@ -22,8 +22,21 @@ class ControllerPages{
         $this->request = $request;
         $this->template = '';
 
-        $this->user = ModelApplicationUserRepository::find($_SESSION['id']);
-
+        if($request['route'] === 'createPage' && isset($request['data'])) {
+          if(($code = FacebookPageRepository::create($request['data'])) !== 200) {
+            // Error
+            $outputArray = array(
+              'error' => $code
+            );
+          }
+          else {
+            // Success
+            $outputArray = array(
+              'success' => $code
+            );
+          }
+          $this->output = json_encode($outputArray);
+        }
     }
 
     /**
@@ -32,12 +45,8 @@ class ControllerPages{
      * @return String Content der Applikation.
      */
     public function display(){
-        $innerView = new View();
-        $innerView->setTemplate('pages');
-        $this->view->setTemplate('application');
-        $this->view->assign('title', 'Socialised Test App - Your managed pages');
-        $this->view->assign('outlet', $innerView->loadTemplate());
-        $this->view->assign('user', $this->user);
+        $this->view->setTemplate('json');
+        $this->view->assign('outlet', $this->output);
         return $this->view->loadTemplate();
     }
 }

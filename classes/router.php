@@ -26,12 +26,13 @@ class Router {
         break;
         case 'createPage':
           return new ControllerPage($request);
+        break;
         case 'login':
           return new ControllerLogin($request);
         break;
-        case 'pages':
+        /*case 'page':
           return new ControllerPages($request);
-        default:
+        default:*/
           return new ControllerDefault($request);
       }
     }

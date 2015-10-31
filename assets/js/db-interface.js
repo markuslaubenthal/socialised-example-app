@@ -19,14 +19,14 @@ function createUser(data, redirect) {
 }
 
 function createPage(data) {
-  setTimeout(function(data) {
-    $.ajax({
-      url: 'index.php?route=createPage',
-      type: 'POST',
-      data: {data: data},
-      success: function(data) {
+  console.log(data);
+  $.ajax({
+    url: 'index.php?route=createPage',
+    type: 'POST',
+    data: {data: data},
+    dataType: 'json',
+    success: function(data) {
 
-      }
-    });
-  }, 0);
+    }
+  });
 }
