@@ -14,4 +14,7 @@ $(document).ready(function() {
   $.get('public/templates/page_01.html', function(data, textStatus, XMLHttpRequest) {
     myTemplate.addTemplate(data, 'page01');
   });
+  $.get('public/templates/page_02.html', function(data, textStatus, XMLHttpRequest) {
+    myTemplate.addTemplate(data, 'page02');
+  });
 });
