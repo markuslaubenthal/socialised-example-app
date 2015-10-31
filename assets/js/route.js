@@ -13,6 +13,6 @@ $(document).ready(function() {
 
 function init() {
 	if(route === '' || route === 'pages') {
-		getManagedPages(showPost);
+		getManagedPages(getPosts);
 	}
 }

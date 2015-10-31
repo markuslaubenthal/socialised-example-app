@@ -21,9 +21,9 @@ var getManagedPages = function (callback) {
 }
 
 var getPostsFromPage = function (account, callback) {
-  var apicall = '/' + account.id + '/posts';
+  var apicall = '/' + account.id + '/feed';
 
-    FB.api(apicall, function(account, posts) {
+    FB.api(apicall, function(posts) {
       if(callback)
         callback(account, posts);
     });

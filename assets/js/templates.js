@@ -1,5 +1,3 @@
-var TEMPLATES = [];
-
 var oTemplate = function() {
   this.templates = {};
 }
