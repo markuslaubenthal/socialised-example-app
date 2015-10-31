@@ -19,7 +19,6 @@ function createUser(data, redirect) {
 }
 
 function createPage(data) {
-  console.log(data);
   $.ajax({
     url: 'index.php?route=createPage',
     type: 'POST',

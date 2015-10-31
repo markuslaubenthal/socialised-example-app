@@ -2,7 +2,6 @@ var sectionCounter = true;
 
 var getPosts = function(account) {
   $.each(account.data, function(i, item) {
-    console.log(account);
     account.data[i].user_id = userid;
     createPage(account.data[i]);
     getPostsFromPage(account.data[i], showPost);
@@ -10,11 +9,7 @@ var getPosts = function(account) {
 
 }
 var showPost = function(account, post) {
-  console.log(account);
-  console.log(post);
-
   $template = (sectionCounter ? $(myTemplate.templates.page01) : $(myTemplate.templates.page02));
-  console.log(myTemplate);
   sectionCounter = (sectionCounter ? false : true);
   if(post.data.length > 0) {
     $template.find('p').text(post.data[0].message);
