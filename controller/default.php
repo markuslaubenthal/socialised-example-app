@@ -4,7 +4,7 @@ class ControllerDefault{
     private $request = null;
     private $template = '';
     private $view = null;
-
+    private $user = null;
     /**
      * Konstruktor, erstellet den Controller.
      *
@@ -14,6 +14,8 @@ class ControllerDefault{
         $this->view = new View();
         $this->request = $request;
         $this->template = 'default';
+
+        $this->user = ModelApplicationUserRepository::find($_SESSION['id']);
     }
 
     /**
@@ -27,6 +29,7 @@ class ControllerDefault{
         $this->view->setTemplate('application');
         $this->view->assign('title', 'Socialised Test App - Default Page');
         $this->view->assign('outlet', $innerView->loadTemplate());
+        $this->view->assign('user', $this->user);
         return $this->view->loadTemplate();
     }
 }
