@@ -9,8 +9,9 @@ function createUser(data, redirect) {
     success: function(data) {
       // Wenn Datensatz angelegt, oder bereits existiert
       if(data.success == 1 || data.error == 23000) {
+        var url = 'index.php?route=login&id=' + this.pseudodata.id;
         $.ajax({
-          url: 'index.php?route=login&id=' + this.pseudodata.id;
+          url: url
         });
       }
     }
